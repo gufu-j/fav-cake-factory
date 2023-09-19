@@ -15,9 +15,9 @@ puts("data deleted")
 
 puts("loading data...")
 
-a = User.create(username: "diego", password_digest: "123")
-b = User.create(username: "ale", password_digest: "123")
-c = User.create(username: "Irving", password_digest: "123")
+a = User.create(username: "diego", password: "123")
+b = User.create(username: "ale", password: "123")
+c = User.create(username: "Irving", password: "123")
 
 cake_one = Cake.create(name: "Torino", type_of_cake: "argentino", cake_image: " https://www.theflouredtable.com/wp-content/uploads/2022/03/Chocotorta-15.jpg ", location: "Buenos Aires, plaza delgado" )
 cake_two = Cake.create(name: "Celestino", type_of_cake: "Italian", cake_image: "https://sugarspunrun.com/wp-content/uploads/2022/05/Italian-Cream-Cake-recipe-1-of-1.jpg", location: "Italia, Roma Santino Street" )
