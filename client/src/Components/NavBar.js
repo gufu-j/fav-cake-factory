@@ -18,7 +18,8 @@ function NavBar({ user, setUser }){
     return(
         <header>
             <div>
-                <Link to="/">Home</Link>
+                <Link to="/"> Home </Link>
+                <Link to="/MyCakes"> My Cakes </Link>
             </div>
             <div>
                 {user ? (
