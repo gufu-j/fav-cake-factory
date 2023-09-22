@@ -1,11 +1,26 @@
 import React from "react";
+import CakeCards from "./CakeCards";
 
 
 
-function Home({ user }){
+function Home({ user, cakes}){
+
+
 
     if (user) {
-    return <h1> Welcome, {user.username}! </h1>;
+        let cakeCards = cakes.map((cake) => (
+            <CakeCards 
+            key={cake.id}
+            cake={cake}
+            />
+        ))
+    return( 
+    <div>
+    <h1> Welcome, {user.username}! </h1>
+    {cakeCards}
+    </div>
+    
+    );
     } else {
     return(
         <h1> Please Login or Sign Up</h1>

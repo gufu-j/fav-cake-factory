@@ -34,7 +34,7 @@ const [cakes, setCakes] = useState([]);
 useEffect(() =>{
   fetch("/cakes")
   .then((r) => r.json())
-  .then(setCakes)
+  .then((r) => setCakes(r))
 }, [])
 
 console.log(cakes)
@@ -46,7 +46,7 @@ console.log(cakes)
       <NavBar user={ user } setUser={ setUser }/>
         {user ? (
           <Routes>
-            <Route path="/" element={ <Home user={user}/> } />
+            <Route path="/" element={ <Home user={user} cakes={cakes}/> } />
             <Route path="/MyCakes" element= {<MyCakes />} />
           </Routes>
         ) : (
