@@ -15,8 +15,6 @@ function NavBar({ user, setUser }){
       };
 
 
-
-
     function handleLogout(){
         fetch("/logout", {
             method: "DELETE",
@@ -31,16 +29,16 @@ function NavBar({ user, setUser }){
     return(
         <header>
             <div>
-                <Link to="/" style = {linkStyles} className="home"> Home </Link>
-                <Link to="/MyCakes" style = {linkStyles} className="myCakes" > My Cakes </Link>
+                <Link to="/" style = {linkStyles} className="link"> Home </Link>
+                {user ? ( <Link to="/MyCakes" style = {linkStyles} className="link"> My Cakes </Link> ) : (null)}
             </div>
             <div>
                 {user ? (
-                    <button onClick={handleLogout} className="logOutbtn"> Logout </button>
+                    <button onClick={handleLogout} className="lOut"> Logout </button>
                  ) : (
                     <>
-                        <Link to= "/signup"> Sign up </Link>
-                        <Link to= "/login"> Login</Link>
+                        <Link to= "/signup" className="link"> Sign up </Link>
+                        <Link to= "/login" className="link"> Login</Link>
                     </>
                 )}
             </div>

@@ -37,7 +37,7 @@ useEffect(() =>{
   .then((r) => setCakes(r))
 }, [])
 
-console.log(cakes)
+// console.log(cakes[0].users)
 
 
 
@@ -53,7 +53,7 @@ console.log(cakes)
           <Routes>
             <Route path="/login" element={ <Login setUser={setUser} /> } />
             <Route path="/signup" element={ <SignUp setUser={setUser} /> }/>
-            <Route path="/" element={ <Home/> } />
+            <Route path="/" element={ <Home cakes={cakes}/> } />
         </Routes>
         )}
     </div>

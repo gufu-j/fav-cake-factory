@@ -6,7 +6,6 @@ import CakeCards from "./CakeCards";
 function Home({ user, cakes}){
 
 
-
     if (user) {
         let cakeCards = cakes.map((cake) => (
             <CakeCards 
@@ -14,6 +13,7 @@ function Home({ user, cakes}){
             cake={cake}
             />
         ))
+
     return( 
     <div>
     <h1> Welcome, {user.username}! </h1>
@@ -23,7 +23,7 @@ function Home({ user, cakes}){
     );
     } else {
     return(
-        <h1> Please Login or Sign Up</h1>
+        <h2> Please Login or Sign Up</h2>
         )}
 }
 
