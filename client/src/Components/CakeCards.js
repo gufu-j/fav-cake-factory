@@ -5,6 +5,14 @@ function CakeCards({cake}){
 
     let cake_user = cake.users[0].username
 
+    
+    //this method works but we would need to create another component to after looping
+    //to display all users. 
+    
+    // let cake_users = cake.users.map((user) => console.log(user))
+    // console.log(cake_user)
+
+
     const {id, name, cake_image, location, type_of_cake} = cake;
 return(
     <div className="card">

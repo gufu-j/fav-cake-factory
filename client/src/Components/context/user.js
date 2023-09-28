@@ -1,0 +1,50 @@
+import React, {useState, useEffect} from "react";
+
+const UserContext = React.createContext();
+
+
+//Create context 
+function UserProvider( {children}){
+
+    // create a provider component
+    const [user, setUser] = useState({});
+    const [loggedIn, setLoggedIn] = useState(false) //add loggedIn flag
+
+    useEffect(() => {
+      fetch('/me')
+      .then(res => res.json())
+      .then(data => {
+        setUser(data)
+        data.error? setLoggedIn(true) : setLoggedIn(false) // set loggedIn flag
+      })
+    }, [])
+  
+    // console.log(user)
+    // console.log(children)
+
+    const login = (user) => {
+        setUser(user)
+        setLoggedIn(true) //set loggedIn flag
+    }
+    
+    const logout = () => {
+        setUser({})
+        setLoggedIn(false) //set loggedIn flag
+
+    }
+
+    const signup = (user) => {
+        setUser(user)
+        setLoggedIn(true) // set loggedIn flag
+
+    }
+
+    return(
+        // add loggedIn to global state
+        <UserContext.Provider value={{user, login, logout, signup, loggedIn}}>
+            {children}
+        </UserContext.Provider>
+    );
+}
+
+export { UserContext, UserProvider}

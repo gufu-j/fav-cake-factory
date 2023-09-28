@@ -1,30 +1,38 @@
-import React from "react";
-import CakeCards from "./CakeCards";
+import React, { useContext } from "react";
+
+// import CakeCards from "./CakeCards";
+import { UserContext } from "./context/user";
 
 
 
-function Home({ user, cakes}){
+function Home({}){
+
+    const { user, loggedIn } = useContext(UserContext)
 
 
-    if (user) {
-        let cakeCards = cakes.map((cake) => (
-            <CakeCards 
-            key={cake.id}
-            cake={cake}
-            />
-        ))
+    console.log(loggedIn)
 
-    return( 
-    <div>
-    <h1> Welcome, {user.username}! </h1>
-    {cakeCards}
-    </div>
-    
-    );
-    } else {
-    return(
-        <h2> Please Login or Sign Up</h2>
-        )}
+    if (loggedIn) {
+        return( 
+            <div>
+             <h2> {user.username}'s Home Page </h2>
+            </div>
+                );
+            } else {
+                return(
+                    <div>
+                         <h1> Please Login or Signup </h1>
+                         {/* {cakeCards} */}
+                     </div> 
+    )}
 }
 
 export default Home
+
+ // let cakeCards = cakes.map((cake) => (
+        //     <CakeCards 
+        //     key={cake.id}
+        //     cake={cake}
+        //     />
+        // ))
+

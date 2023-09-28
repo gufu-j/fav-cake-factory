@@ -1,6 +1,12 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+//import React, { useEffect, useState, useContext} from 'react';
 import {Route, Routes} from "react-router-dom";
+import React from 'react';
+
+//global domination
+import { UserProvider } from './context/user';
+// import { UserContext } from "./context/user";
+
 
 // Step One : Involves SignIn SetUp
 import NavBar from './NavBar';
@@ -10,52 +16,55 @@ import SignUp from './SignUp';
 
 //Step Two : user interaction was logged in.
 
-import MyCakes from './MyCakes';
+// import MyCakes from './MyCakes';
 
 function App() {
 
+  // const { user } = useContext(UserContext)
+
+  // console.log(user)
+
   // stay logged in 
-  const [user, setUser] = useState(null);
+  //   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    fetch("/me").then((r)=> {
-      if(r.ok){
-        console.log(r)
-        r.json().then((user) => setUser(user));
-      }
-    });
-  }, [])
+  //   useEffect(() => {
+  //     fetch("/me").then((r)=> {
+  //       if(r.ok){
+  //         console.log(r)
+  //         r.json().then((user) => setUser(user));
+  //       }
+  //     });
+  //   }, [])
 
-console.log(user)
+  // console.log(user)
 
 
-const [cakes, setCakes] = useState([]);
+// const [cakes, setCakes] = useState([]);
 
-useEffect(() =>{
-  fetch("/cakes")
-  .then((r) => r.json())
-  .then((r) => setCakes(r))
-}, [])
+// useEffect(() =>{
+//   fetch("/cakes")
+//   .then((r) => r.json())
+//   .then((r) => setCakes(r))
+// }, [])
 
+// console.log(cakes)
 // console.log(cakes[0].users)
 
 
 
   return (
     <div>
-      <NavBar user={ user } setUser={ setUser }/>
-        {user ? (
+      <UserProvider>
+      <NavBar />
           <Routes>
-            <Route path="/" element={ <Home user={user} cakes={cakes}/> } />
-            <Route path="/MyCakes" element= {<MyCakes />} />
-          </Routes>
-        ) : (
-          <Routes>
-            <Route path="/login" element={ <Login setUser={setUser} /> } />
-            <Route path="/signup" element={ <SignUp setUser={setUser} /> }/>
-            <Route path="/" element={ <Home cakes={cakes}/> } />
+            <Route exact path="/login" element={ <Login  /> } />
+            <Route exact path="/signup" element={ <SignUp  /> }/>
+            <Route exact path="/" element={ <Home /> } />
+            {/* <Route exact path="/" element={ <Home /> } /> */}
+            {/* <Route exact path="/MyCakes" element= {<MyCakes />} /> */}
+
         </Routes>
-        )}
+        </UserProvider>
     </div>
   );
 }
