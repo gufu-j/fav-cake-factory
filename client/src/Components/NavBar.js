@@ -30,9 +30,10 @@ function NavBar({}){
         })
     }
 
-    console.log(loggedIn)
+    //console.log(loggedIn)
 
     if(loggedIn){
+        console.log(loggedIn)
         return(
             <div>
                 <h1>Hello {user.username}</h1>

@@ -5,6 +5,8 @@ function CakeCards({cake}){
 
     let cake_user = cake.users[0].username
 
+    console.log(cake_user)
+
     
     //this method works but we would need to create another component to after looping
     //to display all users. 

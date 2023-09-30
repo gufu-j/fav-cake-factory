@@ -1,6 +1,6 @@
 class CakeSerializer < ActiveModel::Serializer
   
-  attributes :id, :name, :type_of_cake, :cake_image, :location, :location
+  attributes :id, :name, :type_of_cake, :cake_image, :location
 
   has_many :users
 end

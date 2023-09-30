@@ -10,17 +10,49 @@ function UserProvider( {children}){
     const [user, setUser] = useState({});
     const [loggedIn, setLoggedIn] = useState(false) //add loggedIn flag
 
+    //cakes 
+   // const [cakes, setCakes] = useState([])
+
     useEffect(() => {
       fetch('/me')
       .then(res => res.json())
       .then(data => {
         setUser(data)
-        data.error? setLoggedIn(true) : setLoggedIn(false) // set loggedIn flag
+        if (data.error) {
+            setLoggedIn(false)
+
+        } else {
+            setLoggedIn(true)
+           // fetchCakes()
+        }
+      //  data.error? setLoggedIn(true) : setLoggedIn(false)  // set loggedIn flag
       })
     }, [])
   
     // console.log(user)
     // console.log(children)
+
+
+    // const fetchCakes = () => {
+    //     fetch('/cakes')
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log(data)
+    //        // setCakes(data)
+    //     })
+    // }
+
+    // const addCake = (cake) => {
+    //     fetch('/cakes',{
+    //         method: 'POST',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify(cake)
+    //     })
+    //     .then(res => res.json()
+    //     .then(newcake => {
+    //         setCakes([...cake, newcake])
+    //     }))
+    // }
 
     const login = (user) => {
         setUser(user)
