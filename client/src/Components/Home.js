@@ -1,42 +1,31 @@
 import React, { useContext } from "react";
-
-
-// import CakeCards from "./CakeCards";
 import { UserContext } from "./context/user";
 import Cakes from './Cakes';
-
-
-
+// import { Link } from "react-router-dom";
+// import CakeForm from "./CakeForm";
 
 
 function Home({cakes}){
 
-    const { user, loggedIn } = useContext(UserContext)
+    const { user, loggedIn} = useContext(UserContext)
 
-
-    console.log(loggedIn)
     if (loggedIn) {
         return( 
             <div>
              <h2> {user.username}'s Home Page </h2>
-             <Cakes cakes= {cakes} />
+             <Cakes cakes= {cakes}/>
             </div>
                 );
             } else {
                 return(
-                    <div>
-                         <h1> Please Login or Signup </h1>
-                         <Cakes cakes= {cakes} />
+                    <div className="intro">
+                        <h1> InstaCake  🍰 </h1>
+                        <p>. . . an app for cake lovers</p>
+                         <h2> Please Login or Signup</h2>
                      </div> 
     )}
 }
 
 export default Home
 
- // let cakeCards = cakes.map((cake) => (
-        //     <CakeCards 
-        //     key={cake.id}
-        //     cake={cake}
-        //     />
-        // ))
 

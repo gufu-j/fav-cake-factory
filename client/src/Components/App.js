@@ -11,14 +11,10 @@ import NavBar from './NavBar';
 import Home from './Home';
 import Login from './Login';
 import SignUp from './SignUp';
-
-//Step Two : user interaction was logged in.
-import Cakes from './Cakes';
-
+import CakeForm from './CakeForm';
+// import ReviewCards from './ReviewCards';
 
 function App() {
-
-
 const [cakes, setCakes] = useState([]);
 
 useEffect(() =>{
@@ -27,12 +23,9 @@ useEffect(() =>{
   .then((r) => setCakes(r))
 }, [])
 
-console.log(cakes)
-
-// console.log(cakes)
-// console.log(cakes[0].users)
-
-
+function handleAddCake(newCake){
+  console.log(...cakes, newCake)
+}
 
   return (
     <div>
@@ -41,10 +34,9 @@ console.log(cakes)
           <Routes>
             <Route exact path="/login" element={ <Login  /> } />
             <Route exact path="/signup" element={ <SignUp  /> }/>
+            <Route exact path="/addCake" element={<CakeForm onAddCake={handleAddCake}/>} />
+             {/* <Route exact path="/addReview" element= {<ReviewCards/>}/> */}
             <Route exact path="/" element={ <Home cakes= {cakes} /> } />
-            {/* <Route exact path="/cakes" element={ <Cakes cakes= {cakes} /> } /> */}
-            {/* <Route exact path="/" element={ <Home /> } /> */}
-            {/* <Route exact path="/MyCakes" element= {<MyCakes />} /> */}
         </Routes>
         </UserProvider>
     </div>

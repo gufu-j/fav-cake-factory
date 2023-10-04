@@ -9,6 +9,7 @@ function UserProvider( {children}){
     // create a provider component
     const [user, setUser] = useState({});
     const [loggedIn, setLoggedIn] = useState(false) //add loggedIn flag
+    const [reviews, setReviews] = useState({})
 
     //cakes 
    // const [cakes, setCakes] = useState([])
@@ -17,47 +18,37 @@ function UserProvider( {children}){
       fetch('/me')
       .then(res => res.json())
       .then(data => {
-        setUser(data)
-        if (data.error) {
+        console.log(data)
+        if (data.errors) {
             setLoggedIn(false)
 
         } else {
             setLoggedIn(true)
-           // fetchCakes()
+            setUser(data)
+            fetchReviews()
         }
-      //  data.error? setLoggedIn(true) : setLoggedIn(false)  // set loggedIn flag
       })
     }, [])
+
+    
+
+
+    const fetchReviews = () => {
+        fetch("/reviews")
+        .then(res => res.json())
+        .then(data => {
+            console.log(data.map(e => e.review))
+            setReviews()
+        })
+    }
+
+    // console.log(fetchReviews)
   
-    // console.log(user)
-    // console.log(children)
-
-
-    // const fetchCakes = () => {
-    //     fetch('/cakes')
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data)
-    //        // setCakes(data)
-    //     })
-    // }
-
-    // const addCake = (cake) => {
-    //     fetch('/cakes',{
-    //         method: 'POST',
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify(cake)
-    //     })
-    //     .then(res => res.json()
-    //     .then(newcake => {
-    //         setCakes([...cake, newcake])
-    //     }))
-    // }
-
     const login = (user) => {
         setUser(user)
         setLoggedIn(true) //set loggedIn flag
     }
+
     
     const logout = () => {
         setUser({})
@@ -73,7 +64,7 @@ function UserProvider( {children}){
 
     return(
         // add loggedIn to global state
-        <UserContext.Provider value={{user, login, logout, signup, loggedIn}}>
+        <UserContext.Provider value={{user, login, logout, signup, loggedIn, reviews}}>
             {children}
         </UserContext.Provider>
     );

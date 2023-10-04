@@ -13,7 +13,7 @@ function SignUp({}){
     const{signup} = useContext(UserContext)
     const navigate = useNavigate()
 
-    console.log(errors)
+    // console.log(errors)
     
 
     function handleSubmit(e) {

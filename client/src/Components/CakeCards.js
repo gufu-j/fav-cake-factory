@@ -1,30 +1,28 @@
 import React from "react";
+// import ReviewCards from "./ReviewCards";
+// import { Link} from "react-router-dom"
+import ReviewCards from "./ReviewCards";
+
 
 
 function CakeCards({cake}){
 
-    let cake_user = cake.users[0].username
+    const { name, cake_image, location, type_of_cake} = cake;
 
-    console.log(cake_user)
-
-    
-    //this method works but we would need to create another component to after looping
-    //to display all users. 
-    
-    // let cake_users = cake.users.map((user) => console.log(user))
-    // console.log(cake_user)
+    const review = cake.reviews.map((e) => e.review)
+    const user_comment = cake.reviews.map((e) => e.username) 
 
 
-    const {id, name, cake_image, location, type_of_cake} = cake;
+    console.log(review)
+    console.log(user_comment)
+
 return(
     <div className="card">
-
         <h2 className="t"> {name} </h2>
-        <p className="t">Posted by {cake_user}</p>
-        <img src={cake_image} alt="name" className="cakepic"/>
-        <p className="p">Location: {location}</p>
+        <p className="p">Location: {location} </p>
         <p className="p">Type of cake: {type_of_cake}</p>
-
+        <img src={cake_image} alt="name" className="cakepic"/>
+        <ReviewCards review={review}  user_comment={user_comment}/>
     </div>
 
 );

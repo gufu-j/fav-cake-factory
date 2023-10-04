@@ -34,7 +34,7 @@ a:hover, a:active {
 
 .card {
   display: grid;
-  grid-template-rows: max-content 100px 1fr;
+  grid-template-rows: max-content 20px 1fr;
   max-width: 400px;
   margin: 0 auto;
   margin-top: 5vh;
@@ -48,10 +48,35 @@ a:hover, a:active {
 .p{
     font-size: 14px;
     color: #7f8c9b;
-    line-height: 20%;
+    line-height: 5%;
 }
 
 .t{
   font-size: 20px;
-  line-height: 5%;
 }
+
+.intro {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.box {
+  border: 2px solid black;
+  height: 200px;
+  width: 200px;
+  margin: 20px auto;
+}
+
+.comment-author {
+  margin-right: 8px;
+  font-size: 20px;
+  color: rgb(59, 130, 246);
+}
+
+.comment-text {
+  font-size: 18px;
+}
+
