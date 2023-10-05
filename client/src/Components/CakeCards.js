@@ -1,8 +1,5 @@
-import React from "react";
-// import ReviewCards from "./ReviewCards";
-// import { Link} from "react-router-dom"
+import React, { useState } from "react";
 import ReviewCard from "./ReviewCard";
-// import Review from "./Review";
 
 
 
@@ -10,13 +7,18 @@ function CakeCards({cake}){
     
     const { name, cake_image, location, type_of_cake} = cake;
 
+    const [show, setShow] = useState(false);
+
 return(
     <div className="card">
         <h2 className="t"> {name} </h2>
         <p className="p">Location: {location} </p>
         <p className="p">Type of cake: {type_of_cake}</p>
         <img src={cake_image} alt="name" className="cakepic"/>
-        <ReviewCard cake={cake} cake_reviews={cake.reviews}/>
+        <button onClick={() =>setShow(!show)}>
+            { show ? "Hide Reviews": "Add or Show Reviews"}    
+        </button>
+        {show? <ReviewCard cake={cake} cake_reviews={cake.reviews}/> : null}
     </div>
 
 );

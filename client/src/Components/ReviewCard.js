@@ -7,8 +7,6 @@ import Review from "./Review";
 function ReviewCard({cake, cake_reviews}){
 
 
-    console.log(cake_reviews)
-
     let review_list= cake_reviews.map((review) => (
         <Review
         key={review.id}

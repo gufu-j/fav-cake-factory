@@ -32,7 +32,6 @@ function ReviewForm({cake}){
     return(
      <div>
             <form onSubmit={handleSubmit}>
-                {/* <h1> Add a Review </h1> */}
                 <input type= "text" id= "review" value={body} onChange={(e) => setBody(e.target.value)} placeholder="review"/>
                 <button type="submit" className="button"> Add Review🤔</button>
             </form>

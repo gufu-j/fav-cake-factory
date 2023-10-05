@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "./context/user";
 import Cakes from './Cakes';
-// import { Link } from "react-router-dom";
-// import CakeForm from "./CakeForm";
+
 
 
 function Home({cakes}){
