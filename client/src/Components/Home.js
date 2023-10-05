@@ -12,7 +12,7 @@ function Home({cakes}){
     if (loggedIn) {
         return( 
             <div>
-             <h2> {user.username}'s Home Page </h2>
+             <h2> @{user.username}'s Home Page </h2>
              <Cakes cakes= {cakes}/>
             </div>
                 );

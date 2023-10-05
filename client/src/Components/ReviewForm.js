@@ -1,20 +1,9 @@
 import React, { useState } from "react";
-import { UserContext } from "./context/user";
-import { useContext } from "react";
 
+function ReviewForm({cake}){
 
-
-function ReviewForm(){
-
-    const [rev, setRev] = useState([])
-
-    // const{review} = useContext(UserContext)
+    const [body, setBody] = useState("")
     const [errors, setErrors] = useState([])
-
-    // const navigate = useNavigate()
-
-    // console.log(errors)
-    
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -24,30 +13,28 @@ function ReviewForm(){
                 "Content-Type" : "application/json",
             },
             body: JSON.stringify({
-                rev: rev,
+                review: body,
+                cake_id: cake.id
             }),
         })
         .then(res => res.json())
         .then(cake => {
              if (!cake.errors) {
-                 setRev(cake)
+                 setBody("")
              } else {
-                 const errorLis = cake.errors.map(e => <li key={e}>{e}</li>)
+                console.log(cake)
+                 const errorLis = cake.errors.map(e => <ul style={{color:"red"}} key={e}>{e}</ul>)
                  setErrors(errorLis)
              }
         })
-        
     }
-
-
 
     return(
      <div>
-         {/* <button onClick={handleGoBackClick}> home </button> */}
             <form onSubmit={handleSubmit}>
-                <h1> Add a Review </h1>
-                <input type= "text" id= "review" value={rev} onChange={(e) => setRev(e.target.value)} placeholder="review"/>
-                <button type="submit"> add review </button>
+                {/* <h1> Add a Review </h1> */}
+                <input type= "text" id= "review" value={body} onChange={(e) => setBody(e.target.value)} placeholder="review"/>
+                <button type="submit" className="button"> Add Review🤔</button>
             </form>
             {errors}
         </div>

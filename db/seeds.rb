@@ -12,7 +12,6 @@ Cake.destroy_all
 Review.destroy_all
 
 puts("data deleted")
-
 puts("loading data...")
 
 a = User.create(username: "diego", password: "123")

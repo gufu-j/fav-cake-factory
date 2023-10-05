@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :cakes, only: [:index, :show]
-  resources :reviews, only: [:index, :show]
+  resources :cakes, only: [:index, :show, :create]
+  resources :reviews, only: [:index, :show, :create]
 
   # get '/cakes', to: 'cakes#index'
 

@@ -35,7 +35,6 @@ function handleAddCake(newCake){
             <Route exact path="/login" element={ <Login  /> } />
             <Route exact path="/signup" element={ <SignUp  /> }/>
             <Route exact path="/addCake" element={<CakeForm onAddCake={handleAddCake}/>} />
-             {/* <Route exact path="/addReview" element= {<ReviewCards/>}/> */}
             <Route exact path="/" element={ <Home cakes= {cakes} /> } />
         </Routes>
         </UserProvider>

@@ -15,8 +15,6 @@ function Cakes({cakes}){
             />
         ))
 
-        console.log(cakeList)
-
     return(
         <div>
             {cakeList}

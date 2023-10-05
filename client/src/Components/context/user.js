@@ -11,14 +11,11 @@ function UserProvider( {children}){
     const [loggedIn, setLoggedIn] = useState(false) //add loggedIn flag
     const [reviews, setReviews] = useState({})
 
-    //cakes 
-   // const [cakes, setCakes] = useState([])
-
+    
     useEffect(() => {
       fetch('/me')
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         if (data.errors) {
             setLoggedIn(false)
 
@@ -36,13 +33,11 @@ function UserProvider( {children}){
     const fetchReviews = () => {
         fetch("/reviews")
         .then(res => res.json())
-        .then(data => {
-            console.log(data.map(e => e.review))
+        .then(()=> {
             setReviews()
         })
     }
 
-    // console.log(fetchReviews)
   
     const login = (user) => {
         setUser(user)
