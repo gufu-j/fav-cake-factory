@@ -3,7 +3,7 @@ import ReviewCard from "./ReviewCard";
 
 
 
-function CakeCards({cake}){
+function CakeCards({cake, onAddReview}){
     
     const { name, cake_image, location, type_of_cake} = cake;
 
@@ -18,7 +18,7 @@ return(
         <button onClick={() =>setShow(!show)}>
             { show ? "Hide Reviews": "Add or Show Reviews"}    
         </button>
-        {show? <ReviewCard cake={cake} cake_reviews={cake.reviews}/> : null}
+        {show? <ReviewCard cake={cake} cake_reviews={cake.reviews} onAddReview={onAddReview}/> : null}
     </div>
 
 );

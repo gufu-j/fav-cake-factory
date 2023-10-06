@@ -25,7 +25,6 @@ function CakeForm({onAddCake}){
         .then((newCake) => onAddCake(newCake))
     }
 
-    // go bacj btn
     const navigate = useNavigate()
     const handleGoBackClick = () => {
         navigate('/');

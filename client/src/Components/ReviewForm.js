@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ReviewForm({cake}){
+function ReviewForm({cake, onAddReview}){
 
     const [body, setBody] = useState("")
     const [errors, setErrors] = useState([])
@@ -18,11 +18,11 @@ function ReviewForm({cake}){
             }),
         })
         .then(res => res.json())
-        .then(cake => {
-             if (!cake.errors) {
+        .then(data=> {
+             if (!data.errors) {
                  setBody("")
+                 onAddReview(data)
              } else {
-                console.log(cake)
                  const errorLis = cake.errors.map(e => <ul style={{color:"red"}} key={e}>{e}</ul>)
                  setErrors(errorLis)
              }

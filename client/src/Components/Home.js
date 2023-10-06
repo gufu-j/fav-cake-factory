@@ -4,7 +4,7 @@ import Cakes from './Cakes';
 
 
 
-function Home({cakes}){
+function Home({cakes, onAddReview}){
 
     const { user, loggedIn} = useContext(UserContext)
 
@@ -12,7 +12,7 @@ function Home({cakes}){
         return( 
             <div>
              <h2> @{user.username}'s Home Page </h2>
-             <Cakes cakes= {cakes}/>
+             <Cakes cakes= {cakes} onAddReview={onAddReview}/>
             </div>
                 );
             } else {

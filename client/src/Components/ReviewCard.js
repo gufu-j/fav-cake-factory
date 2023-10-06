@@ -4,7 +4,7 @@ import Review from "./Review";
 
 
 
-function ReviewCard({cake, cake_reviews}){
+function ReviewCard({cake, cake_reviews, onAddReview}){
 
 
     let review_list= cake_reviews.map((review) => (
@@ -14,10 +14,13 @@ function ReviewCard({cake, cake_reviews}){
         />
     ))
 
+
+
+
     return(
 
         <div>
-            <ReviewForm cake={cake}/>
+            <ReviewForm cake={cake} onAddReview={onAddReview}/>
             {review_list}
         </div>
     )
