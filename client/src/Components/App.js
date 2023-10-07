@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState} from 'react';
+import React, { useContext, useEffect, useState} from 'react';
 import {Route, Routes} from "react-router-dom";
 
 //global domination
@@ -12,18 +12,17 @@ import Home from './Home';
 import Login from './Login';
 import SignUp from './SignUp';
 import CakeForm from './CakeForm';
+import Review from './Review';
 // import ReviewCards from './ReviewCards';
 
+//useContext & userContext
 
+// import { UserContext } from "./context/user";
 
 
 
 function App() {
 const [cakes, setCakes] = useState([]);
-
-
-
-// console.log(id)
 
 
   useEffect(() =>{
@@ -52,6 +51,12 @@ const [cakes, setCakes] = useState([]);
   }
 
 
+  function handleDeleteCake(deletedReview){
+    const cakeReviewList = cakes.find(c => c.id === deletedReview.cake_id).reviews
+    const updatedReviews= cakeReviewList.filter((r) => r.id !== deletedReview.id)
+    console.log(cakeReviewList)
+    console.log(updatedReviews)
+  }
 
   return (
     <div>
@@ -61,7 +66,7 @@ const [cakes, setCakes] = useState([]);
             <Route exact path="/login" element={ <Login  /> } />
             <Route exact path="/signup" element={ <SignUp  /> }/>
             <Route exact path="/addCake" element={<CakeForm onAddCake={handleAddCake} />} />
-            <Route exact path="/" element={ <Home cakes= {cakes} onAddReview={handleReview}/> } />
+            <Route exact path="/" element={ <Home cakes= {cakes} onAddReview={handleReview} onDeleteCake={handleDeleteCake}/> } />
         </Routes>
         </UserProvider>
     </div>

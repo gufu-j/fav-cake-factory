@@ -26,7 +26,7 @@ function UserProvider( {children}){
       })
     }, [])
 
-    
+    // console.log(user)
 
 
     const fetchReviews = () => {

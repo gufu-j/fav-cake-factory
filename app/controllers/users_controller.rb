@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
     #from Prof. Nancy's lecture
+    skip_before_action :authorize, only: [:show]
+
     def create 
         user = User.create(user_params) 
         if user.valid? 

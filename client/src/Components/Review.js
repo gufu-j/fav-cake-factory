@@ -1,9 +1,10 @@
 import React from "react";
 import { UserContext } from "./context/user";
 import { useContext } from "react";
+import EditReview from "./EditReview";
 
 
-function Review({review}){
+function Review({review, onDeleteCake, cake}){
 
     const {user} = useContext(UserContext)
 
@@ -14,12 +15,18 @@ function Review({review}){
         })
         .then((r) => {
             if(r.ok){
-                console.log(r)
-            } else {
-                r.json().then(console.log)
-            }
-        })
+                onDeleteCake(review)
+            } 
+        });
     }
+
+
+            //     {if(r.ok){
+            //         onDeleteCake(r)
+            //     } else {
+            //         console.log(r)
+            //     }
+            // })
 
     return(
         <div className="container">
@@ -34,6 +41,10 @@ function Review({review}){
                      🗑️
                     </button> : null
                 }
+                 {user.id === review.user_id?  
+                     <EditReview review={review} cake={cake} /> : null
+                }
+
         </div>
     )
 }

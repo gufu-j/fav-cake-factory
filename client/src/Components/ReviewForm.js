@@ -23,7 +23,7 @@ function ReviewForm({cake, onAddReview}){
                  setBody("")
                  onAddReview(data)
              } else {
-                 const errorLis = cake.errors.map(e => <ul style={{color:"red"}} key={e}>{e}</ul>)
+                 const errorLis = data.errors.map(e => <ul style={{color:"red"}} key={e}>{e}</ul>)
                  setErrors(errorLis)
              }
         })
