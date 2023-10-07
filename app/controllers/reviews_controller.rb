@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
 
 
     def destroy
-        review = Review.find(params[:id])
+        review = @current_user.reviews.find(params[:id])
         review.destroy
         head :no_content
     end
@@ -51,3 +51,4 @@ class ReviewsController < ApplicationController
     end
 
 end
+

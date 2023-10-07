@@ -22,7 +22,6 @@ function UserProvider( {children}){
         } else {
             setLoggedIn(true)
             setUser(data)
-            fetchReviews()
         }
       })
     }, [])

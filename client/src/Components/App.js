@@ -14,14 +14,14 @@ import SignUp from './SignUp';
 import CakeForm from './CakeForm';
 // import ReviewCards from './ReviewCards';
 
-// import  {link, useParams } from 'react-router-dom'
+
 
 
 
 function App() {
 const [cakes, setCakes] = useState([]);
 
-// let {id} = useParams()
+
 
 // console.log(id)
 
