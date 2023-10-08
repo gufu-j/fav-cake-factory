@@ -25,7 +25,6 @@ function Home({cakes, onAddReview, onDeleteCake}){
                          <h2> Please Login or Signup</h2>
                      </div> 
                      <Cakes cakes= {cakes} onAddReview={onAddReview} onDeleteCake={onDeleteCake}/>
-
                      </div>
 
     )}

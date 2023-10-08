@@ -30,6 +30,9 @@ function NavBar({}){
                 <button>Add a Cake</button>
                 {/* <CakeForm/> */}
                 </Link>
+                <Link to='/'>
+                    <button>home</button>
+                </Link>
             </div>
         )
     }else{
@@ -40,6 +43,9 @@ function NavBar({}){
                 </Link>
                 <Link to='/signup'>
                     <button>Signup</button>
+                </Link>
+                <Link to='/'>
+                    <button>home</button>
                 </Link>
                 <hr/>
             </div>

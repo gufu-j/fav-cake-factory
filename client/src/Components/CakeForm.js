@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import {useNavigate} from "react-router-dom"
 
 function CakeForm({onAddCake}){
     
@@ -25,15 +24,10 @@ function CakeForm({onAddCake}){
         .then((newCake) => onAddCake(newCake))
     }
 
-    const navigate = useNavigate()
-    const handleGoBackClick = () => {
-        navigate('/');
-      };
 
 
     return(
         <div>
-            <button onClick={handleGoBackClick}> home </button>
             <form onSubmit={handleSubmitNewCake}>
             <h1> Add a New Cake </h1>
             <input type= "text" id= "name" value={name} onChange={(e) => setCakename(e.target.value)} placeholder="cake name"/>
