@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function EditReview({review, cake}){
+function EditReview({review}){
 
     const [modal, setModal] = useState(false);
 
@@ -20,6 +20,7 @@ function EditReview({review, cake}){
       headers: {
         "Content-Type": "application/json",
       },
+      
       body: JSON.stringify({
             review: body,
       }),

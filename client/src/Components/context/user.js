@@ -9,7 +9,6 @@ function UserProvider( {children}){
     // create a provider component
     const [user, setUser] = useState({});
     const [loggedIn, setLoggedIn] = useState(false) //add loggedIn flag
-    const [reviews, setReviews] = useState({})
 
     
     useEffect(() => {
@@ -25,17 +24,6 @@ function UserProvider( {children}){
         }
       })
     }, [])
-
-    // console.log(user)
-
-
-    const fetchReviews = () => {
-        fetch("/reviews")
-        .then(res => res.json())
-        .then(()=> {
-            setReviews()
-        })
-    }
 
   
     const login = (user) => {
@@ -58,7 +46,7 @@ function UserProvider( {children}){
 
     return(
         // add loggedIn to global state
-        <UserContext.Provider value={{user, login, logout, signup, loggedIn, reviews}}>
+        <UserContext.Provider value={{user, login, logout, signup, loggedIn}}>
             {children}
         </UserContext.Provider>
     );

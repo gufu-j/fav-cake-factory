@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 
+
+import { useNavigate } from "react-router-dom";
+
 function ReviewForm({cake, onAddReview}){
 
     const [body, setBody] = useState("")
     const [errors, setErrors] = useState([])
+
+    const navigate = useNavigate()
+    const handleGoToLogin = () => {
+        navigate('/signup');
+      };
+
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -23,7 +32,12 @@ function ReviewForm({cake, onAddReview}){
                  setBody("")
                  onAddReview(data)
              } else {
-                 const errorLis = data.errors.map(e => <ul style={{color:"red"}} key={e}>{e}</ul>)
+                 const errorLis = data.errors.map((e) => (
+                <div key={e}>
+                 <ul style={{color:"red"}} >{e}</ul>
+                 <button onClick={handleGoToLogin}> SingUp </button>
+                 </div>
+                 ))
                  setErrors(errorLis)
              }
         })
