@@ -4,7 +4,7 @@ import { useContext } from "react";
 import EditReview from "./EditReview";
 
 
-function Review({review, onDeleteCake, cake}){
+function Review({review, onDeleteCake, cake, onUpdateCakeReview}){
 
     const {user} = useContext(UserContext)
 
@@ -20,14 +20,6 @@ function Review({review, onDeleteCake, cake}){
         });
     }
 
-
-            //     {if(r.ok){
-            //         onDeleteCake(r)
-            //     } else {
-            //         console.log(r)
-            //     }
-            // })
-
     return(
         <div className="container">
             <ul className="comment-author"> 
@@ -42,7 +34,7 @@ function Review({review, onDeleteCake, cake}){
                     </button> : null
                 }
                  {user.id === review.user_id?  
-                     <EditReview review={review} cake={cake} /> : null
+                     <EditReview review={review} cake={cake} onUpdateCakeReview={onUpdateCakeReview}/> : null
                 }
 
         </div>

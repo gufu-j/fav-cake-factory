@@ -5,7 +5,7 @@ import Cakes from './Cakes';
 
 
 
-function Home({cakes, onAddReview, onDeleteCake}){
+function Home({cakes, onAddReview, onDeleteCake, onUpdateCakeReview}){
 
     const { user, loggedIn} = useContext(UserContext)
 
@@ -13,7 +13,7 @@ function Home({cakes, onAddReview, onDeleteCake}){
         return( 
             <div>
              <h2> @{user.username}'s Home Page </h2>
-             <Cakes cakes= {cakes} onAddReview={onAddReview} onDeleteCake={onDeleteCake}/>
+             <Cakes cakes= {cakes} onAddReview={onAddReview} onDeleteCake={onDeleteCake} onUpdateCakeReview={onUpdateCakeReview}/>
             </div>
                 );
             } else {
@@ -22,7 +22,6 @@ function Home({cakes, onAddReview, onDeleteCake}){
                     <div className="intro">
                         <h1> InstaCake  🍰 </h1>
                         <p>. . . an app for cake lovers</p>
-                         <h2> Please Login or Signup</h2>
                      </div> 
                      <Cakes cakes= {cakes} onAddReview={onAddReview} onDeleteCake={onDeleteCake}/>
                      </div>

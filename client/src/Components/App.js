@@ -12,18 +12,15 @@ import Home from './Home';
 import Login from './Login';
 import SignUp from './SignUp';
 import CakeForm from './CakeForm';
-import Review from './Review';
-// import ReviewCards from './ReviewCards';
 
-//useContext & userContext
-
-// import { UserContext } from "./context/user";
 
 
 
 function App() {
 const [cakes, setCakes] = useState([]);
 
+
+console.log(cakes)
 
   useEffect(() =>{
     fetch("/cakes")
@@ -58,6 +55,30 @@ const [cakes, setCakes] = useState([]);
     console.log(updatedReviews)
   }
 
+
+  function handleUpdateReview(updatedReview){
+    const cakeReviews = cakes.find(c => c.id === updatedReview.cake_id).reviews
+
+    const updatedReviews = cakeReviews.map((r) => {
+      if(r.id === updatedReview.id){
+        return updatedReview
+      }else{
+        return r;
+      }
+    });
+
+   const updatedCakes = cakes.map((c) => {
+      if(c.id === updatedReview.cake_id){
+        return {...c, reviews:updatedReviews}
+        }else{
+        return c;
+      }
+     }
+    )
+
+    setCakes(updatedCakes)
+  }
+
   return (
     <div>
       <UserProvider>
@@ -66,7 +87,7 @@ const [cakes, setCakes] = useState([]);
             <Route exact path="/login" element={ <Login  /> } />
             <Route exact path="/signup" element={ <SignUp  /> }/>
             <Route exact path="/addCake" element={<CakeForm onAddCake={handleAddCake} />} />
-            <Route exact path="/" element={ <Home cakes= {cakes} onAddReview={handleReview} onDeleteCake={handleDeleteCake}/> } />
+            <Route exact path="/" element={ <Home cakes= {cakes} onAddReview={handleReview} onDeleteCake={handleDeleteCake}  onUpdateCakeReview={handleUpdateReview} /> } />
         </Routes>
         </UserProvider>
     </div>

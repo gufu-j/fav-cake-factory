@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 
-
+// if user is log logged in --1
 import { useNavigate } from "react-router-dom";
+// if user is logged in --2
+import { UserContext } from "./context/user";
+import { useContext } from "react";
 
 function ReviewForm({cake, onAddReview}){
 
     const [body, setBody] = useState("")
     const [errors, setErrors] = useState([])
 
+    // --1
     const navigate = useNavigate()
-    const handleGoToLogin = () => {
+    const handleGoToSignIn = () => {
         navigate('/signup');
       };
+    const handleGoToLogin= () => {
+        navigate('/login');
+    };
+    // --2
+    const {user} = useContext(UserContext)
 
 
     function handleSubmit(e) {
@@ -34,8 +43,13 @@ function ReviewForm({cake, onAddReview}){
              } else {
                  const errorLis = data.errors.map((e) => (
                 <div key={e}>
-                 <ul style={{color:"red"}} >{e}</ul>
-                 <button onClick={handleGoToLogin}> SingUp </button>
+                 <ul style={{color:"red"}} >{e}😣</ul>
+                    {user.id ? "" :  
+                        <div>
+                            <button  className="button" onClick={handleGoToSignIn}> Click here to SignIn and make a comment </button> 
+                            <button  className="button" onClick={handleGoToLogin}> Already have an account? Click here</button> 
+                        </div>
+                    }
                  </div>
                  ))
                  setErrors(errorLis)

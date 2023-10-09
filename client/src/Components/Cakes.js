@@ -1,7 +1,7 @@
 import React from "react";
 import CakeCards from "./CakeCards";
 
-function Cakes({cakes, onAddReview, onDeleteCake}){
+function Cakes({cakes, onAddReview, onDeleteCake, onUpdateCakeReview}){
 
         let cakeList = cakes.map((cake) => (
             <CakeCards
@@ -9,6 +9,7 @@ function Cakes({cakes, onAddReview, onDeleteCake}){
             cake={cake}
             onAddReview={onAddReview}
             onDeleteCake={onDeleteCake}
+            onUpdateCakeReview={onUpdateCakeReview}
             />
         ))
 

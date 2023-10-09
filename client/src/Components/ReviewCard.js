@@ -4,7 +4,7 @@ import Review from "./Review";
 
 
 
-function ReviewCard({cake, cake_reviews, onAddReview, onDeleteCake}){
+function ReviewCard({cake, cake_reviews, onAddReview, onDeleteCake, onUpdateCakeReview}){
 
 
     let review_list= cake_reviews.map((review) => (
@@ -13,6 +13,7 @@ function ReviewCard({cake, cake_reviews, onAddReview, onDeleteCake}){
         review={review}
         onDeleteCake={onDeleteCake}
         cake={cake}
+        onUpdateCakeReview={onUpdateCakeReview}
         />
     ))
 

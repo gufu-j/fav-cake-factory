@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function EditReview({review}){
+function EditReview({review, onUpdateCakeReview}){
 
     const [modal, setModal] = useState(false);
 
@@ -26,7 +26,7 @@ function EditReview({review}){
       }),
     })
       .then((r) => r.json())
-      .then((updatedBakery) => console.log(updatedBakery));
+      .then((updatedBakery) => onUpdateCakeReview(updatedBakery));
   }
   
     return(

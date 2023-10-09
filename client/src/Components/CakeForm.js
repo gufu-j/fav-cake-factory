@@ -24,8 +24,6 @@ function CakeForm({onAddCake}){
         .then((newCake) => onAddCake(newCake))
     }
 
-
-
     return(
         <div>
             <form onSubmit={handleSubmitNewCake}>
