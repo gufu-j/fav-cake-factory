@@ -21,7 +21,7 @@ return(
         {show? <ReviewCard cake={cake} cake_reviews={cake.reviews} onAddReview={onAddReview} onDeleteCake={onDeleteCake} onUpdateCakeReview={onUpdateCakeReview}/> : null}
     </div>
 
-);
+ );
 }
 
 

@@ -1,22 +1,16 @@
 import './App.css';
-import React, { useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Route, Routes} from "react-router-dom";
 
-//global domination
 import { UserProvider } from './context/user';
-
-
-// Step One : Involves SignIn SetUp
 import NavBar from './NavBar';
 import Home from './Home';
 import Login from './Login';
 import SignUp from './SignUp';
 import CakeForm from './CakeForm';
 
-
-
-
 function App() {
+
 const [cakes, setCakes] = useState([]);
 
 
@@ -29,7 +23,7 @@ console.log(cakes)
   }, [])
 
   function handleAddCake(newCake){
-    console.log(...cakes, newCake)
+    setCakes([...cakes, newCake])
   }
 
   function handleReview(newReview){
@@ -44,19 +38,34 @@ console.log(cakes)
     }
   }
 )
+
   setCakes(updatedCakes)
   }
 
 
   function handleDeleteCake(deletedReview){
+    console.log(deletedReview)
     const cakeReviewList = cakes.find(c => c.id === deletedReview.cake_id).reviews
+
     const updatedReviews= cakeReviewList.filter((r) => r.id !== deletedReview.id)
-    console.log(cakeReviewList)
-    console.log(updatedReviews)
+  
+    const updatedCakes = cakes.map((c) => {
+      if(c.id === deletedReview.cake_id){
+        return {...c, reviews: updatedReviews}
+        }else{
+        return c;
+      }
+     }
+    )
+    setCakes(updatedCakes)
+
   }
 
 
   function handleUpdateReview(updatedReview){
+
+    console.log(updatedReview)
+
     const cakeReviews = cakes.find(c => c.id === updatedReview.cake_id).reviews
 
     const updatedReviews = cakeReviews.map((r) => {
@@ -95,3 +104,4 @@ console.log(cakes)
 }
 
 export default App;
+

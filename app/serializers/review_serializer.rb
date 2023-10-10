@@ -1,13 +1,9 @@
 class ReviewSerializer < ActiveModel::Serializer
 
-  attributes :id, :user_id, :cake_id, :review, :username
+  attributes :id, :user_id, :cake_id, :review, :username, :created_at
 
   def username
     object.user.username
-  end
-
-  def cake_name
-    object.cake.name
   end
 
 

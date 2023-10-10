@@ -28,6 +28,7 @@ function EditReview({review, onUpdateCakeReview}){
       .then((r) => r.json())
       .then((updatedBakery) => onUpdateCakeReview(updatedBakery));
   }
+
   
     return(
         <>
@@ -39,7 +40,7 @@ function EditReview({review, onUpdateCakeReview}){
           <div className="modal-content">
             <h1>Edit Review</h1>
             <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
                 <input
                 type="text"
                 name="name"
@@ -47,7 +48,7 @@ function EditReview({review, onUpdateCakeReview}){
                 onChange={(e)=> setBody(e.target.value)} 
                 placeholder="review"     
                 />
-                <button type="submit"> Update Review </button>
+                <button type="submit" > Update Review </button>
             </form>
             </div>
             <button className="close-modal" onClick={toggleModal}>
