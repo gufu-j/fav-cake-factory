@@ -21,9 +21,9 @@ function Home({cakes, onAddReview, onDeleteCake, onUpdateCakeReview}){
                     <div>
                     <div className="intro">
                         <h1> InstaCake  🍰 </h1>
-                        <p>. . . an app for cake lovers</p>
+                         {/* <p>. . . an app for cake lovers</p> */}
+                        <Cakes cakes= {cakes} onAddReview={onAddReview} onDeleteCake={onDeleteCake}/>
                      </div> 
-                     <Cakes cakes= {cakes} onAddReview={onAddReview} onDeleteCake={onDeleteCake}/>
                      </div>
 
     )}

@@ -7,6 +7,9 @@ function CakeForm({onAddCake}){
     const [cake_image, setCake_image] = useState("")
     const [location, setLocation] = useState("")
 
+    const [errors, setErrors] = useState([])
+
+
 
     function handleSubmitNewCake(e){
         e.preventDefault()
@@ -23,9 +26,27 @@ function CakeForm({onAddCake}){
             },
             body: JSON.stringify(itemData),
         })
-        .then((r) => r.json )
-        .then((newCake) => onAddCake(newCake))
+        .then((r) => r.json())
+        .then((data) => {
+            if(!data.errors) {
+                onAddCake(data)
+                setCakename("")
+                setType_of_cake("")
+                setCake_image("")
+                setLocation("")
+            } else {
+                const errorLis = data.errors.map((e) => (
+                    <div key={e}>
+                        <ul style={{color: "red"}}>{e}</ul>
+                    </div>
+                ))
+                setErrors(errorLis)
+            }
+        })
     }
+
+
+    
 
     return(
         <div>
@@ -37,6 +58,7 @@ function CakeForm({onAddCake}){
             <input type= "text" id="cake_location" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="location"/>
             <button type="submit"> add cake </button>
         </form>
+        {errors}
 
 
         </div>
@@ -44,3 +66,4 @@ function CakeForm({onAddCake}){
 }
 
 export default CakeForm
+

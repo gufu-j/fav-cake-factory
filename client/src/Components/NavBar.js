@@ -25,27 +25,34 @@ function NavBar({}){
         return(
             <div>
                 <h1>Hello {user.username}</h1>
-                <button onClick={handleLogout}> Logout </button>
-                <Link className="addingCakeForm"  to="/addCake"  >
-                <button>Add a Cake</button>
-                {/* <CakeForm/> */}
-                </Link>
+                
                 <Link to='/'>
-                    <button>home</button>
+                    <button class="button-54" role="button">Home</button>
+                </Link> 
+
+                <Link className="addingCakeForm"  to="/addCake"  >
+                <button class="button-54" role="button" >Add a Cake</button>
                 </Link>
+               
+                <Link>
+                    <button class="button-54" role="button">About Us</button>
+                </Link>
+
+                <button class="button-54" role="button" onClick={handleLogout}> Logout </button>
+
             </div>
         )
     }else{
         return (
             <div>
                 <Link to='/login'>
-                    <button>Login</button>
+                    <button class="button-54" role="button" >Login</button>
                 </Link>
                 <Link to='/signup'>
-                    <button>Signup</button>
+                    <button class="button-54" role="button" >Signup</button>
                 </Link>
                 <Link to='/'>
-                    <button>home</button>
+                    <button class="button-54" role="button" >home</button>
                 </Link>
                 <hr/>
             </div>

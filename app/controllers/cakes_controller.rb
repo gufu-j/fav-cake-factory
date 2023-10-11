@@ -4,8 +4,7 @@ class CakesController < ApplicationController
 
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
-  before_action :authorize
-  skip_before_action :authorize, only: [:index, :show, :create]
+  skip_before_action :authorize, only: [:index, :show]
 
 
     def index
@@ -35,7 +34,7 @@ class CakesController < ApplicationController
     end
 
     def render_unprocessable_entity_response(invalid)
-      render json: { error: invalid.record.errors.full_messages}, status: :unprocessable_entity
+      render json: { errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
     end
 
 

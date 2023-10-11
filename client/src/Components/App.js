@@ -8,6 +8,7 @@ import Home from './Home';
 import Login from './Login';
 import SignUp from './SignUp';
 import CakeForm from './CakeForm';
+import AboutUs from './AboutUs';
 
 function App() {
 
@@ -97,6 +98,7 @@ console.log(cakes)
             <Route exact path="/signup" element={ <SignUp  /> }/>
             <Route exact path="/addCake" element={<CakeForm onAddCake={handleAddCake} />} />
             <Route exact path="/" element={ <Home cakes= {cakes} onAddReview={handleReview} onDeleteCake={handleDeleteCake}  onUpdateCakeReview={handleUpdateReview} /> } />
+            <Route exact path="aboutUs" element = { <AboutUs /> } />
         </Routes>
         </UserProvider>
     </div>
