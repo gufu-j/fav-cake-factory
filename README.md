@@ -1,4 +1,5 @@
-<h1> Backend and Frontend Cake App Project </h1
+
+<h1> InstaCake, a Backend and Frontend Cake App Project </h1
 
 This Project consists of building a backend database able to handle three tables, Cake, Review, and User. The purpose is to allow the user to create an account and make reviews on different cakes.
 
