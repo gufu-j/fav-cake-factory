@@ -16,6 +16,7 @@ function Review({review, onDeleteCake, cake, onUpdateCakeReview}){
         .then((r) => {
             if(r.ok){
                 onDeleteCake(review)
+                // setUser({...user, cakes: [...user.cakes, cake]})
             } 
         });
     }
