@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :cakes, only: [:index, :show, :create]
   resources :reviews, only: [:index, :show, :create, :destroy, :update]
 
+
+  # this route is to practice for the assesment.
+  resources :practicecakes, only: [:index, :show]
+
   # get '/cakes', to: 'cakes#index'
 
   # Routing logic: fallback requests for React Router.
@@ -13,6 +17,8 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   delete "/logout", to: "sessions#destroy"
   post "/signup", to: "users#create"
+
+  # get "practicecakes", to: "practices#index"
 
   
 

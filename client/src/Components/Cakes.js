@@ -3,6 +3,7 @@ import CakeCards from "./CakeCards";
 
 function Cakes({cakes, onAddReview, onDeleteCake, onUpdateCakeReview}){
 
+
         let cakeList = cakes.map((cake) => (
             <CakeCards
             key={cake.id}
@@ -10,6 +11,7 @@ function Cakes({cakes, onAddReview, onDeleteCake, onUpdateCakeReview}){
             onAddReview={onAddReview}
             onDeleteCake={onDeleteCake}
             onUpdateCakeReview={onUpdateCakeReview}
+            cakes = {cakes}
             />
         ))
 

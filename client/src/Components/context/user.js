@@ -4,7 +4,7 @@ const UserContext = React.createContext();
 
 
 //Create context 
-function UserProvider( {children}){
+function UserProvider({children}){
 
     // create a provider component
     const [user, setUser] = useState({});
@@ -19,13 +19,14 @@ function UserProvider( {children}){
             setLoggedIn(false)
 
         } else {
+            console.log(data)
             setLoggedIn(true)
             setUser(data)
         }
       })
     }, [])
 
-  
+    
     const login = (user) => {
         setUser(user)
         setLoggedIn(true) //set loggedIn flag
@@ -46,7 +47,7 @@ function UserProvider( {children}){
 
     return(
         // add loggedIn to global state
-        <UserContext.Provider value={{user, login, logout, signup, loggedIn}}>
+        <UserContext.Provider value={{user, login, logout, signup, loggedIn, setUser}}>
             {children}
         </UserContext.Provider>
     );

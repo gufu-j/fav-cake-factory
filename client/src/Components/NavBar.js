@@ -27,18 +27,21 @@ function NavBar({}){
                 <h1>Hello {user.username}</h1>
                 
                 <Link to='/'>
-                    <button class="button-54" role="button">Home</button>
+                    <button className="button-54" role="button">Home</button>
                 </Link> 
 
                 <Link className="addingCakeForm"  to="/addCake"  >
-                <button class="button-54" role="button" >Add a Cake</button>
+                <button className="button-54" role="button" >Add a Cake</button>
                 </Link>
                
-                <Link>
-                    <button class="button-54" role="button">About Us</button>
+                <Link to="/aboutUs">
+                    <button className="button-54" role="button">About Us</button>
                 </Link>
-
-                <button class="button-54" role="button" onClick={handleLogout}> Logout </button>
+                
+                <Link to="/cakesreviewed">
+                    <button className="button-54" role="button">History</button>
+                </Link>
+                <button className="button-54" role="button" onClick={handleLogout}> Logout </button>
 
             </div>
         )
@@ -46,13 +49,13 @@ function NavBar({}){
         return (
             <div>
                 <Link to='/login'>
-                    <button class="button-54" role="button" >Login</button>
+                    <button className="button-54" role="button" >Login</button>
                 </Link>
                 <Link to='/signup'>
-                    <button class="button-54" role="button" >Signup</button>
+                    <button className="button-54" role="button" >Signup</button>
                 </Link>
                 <Link to='/'>
-                    <button class="button-54" role="button" >home</button>
+                    <button className="button-54" role="button" >home</button>
                 </Link>
                 <hr/>
             </div>

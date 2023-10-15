@@ -8,6 +8,7 @@ import Cakes from './Cakes';
 function Home({cakes, onAddReview, onDeleteCake, onUpdateCakeReview}){
 
     const { user, loggedIn} = useContext(UserContext)
+    
 
     if (loggedIn) {
         return( 

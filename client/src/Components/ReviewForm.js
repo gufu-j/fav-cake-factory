@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "./context/user";
 import { useContext } from "react";
 
-function ReviewForm({cake, onAddReview}){
+function ReviewForm({cake, onAddReview, cakes}){
 
     const [body, setBody] = useState("")
     const [errors, setErrors] = useState([])
@@ -20,8 +20,11 @@ function ReviewForm({cake, onAddReview}){
         navigate('/login');
     };
     // --2
-    const {user} = useContext(UserContext)
 
+    
+    // we added the setUser state right at the end of this project, it goes along with the code marked below in green
+    const {user, setUser} = useContext(UserContext)
+    
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -40,6 +43,13 @@ function ReviewForm({cake, onAddReview}){
              if (!data.errors) {
                  setBody("")
                  onAddReview(data)
+                 console.log(data)
+
+                 // this was added right at the end of this project
+                        setUser({
+                        ...user, cakes: [...user.cakes, cake]
+                        })
+                //////////////////////////////////////
              } else {
                  const errorLis = data.errors.map((e) => (
                 <div key={e}>
@@ -57,6 +67,9 @@ function ReviewForm({cake, onAddReview}){
         })
     }
 
+    console.log(user)
+
+
     return(
      <div>
             <form onSubmit={handleSubmit}>
@@ -65,8 +78,6 @@ function ReviewForm({cake, onAddReview}){
             </form>
             {errors}
         </div>
-
-
     )  
 }
 

@@ -9,19 +9,23 @@ import Login from './Login';
 import SignUp from './SignUp';
 import CakeForm from './CakeForm';
 import AboutUs from './AboutUs';
+import CakeReviewed from './CakeReviewed';
+
+
+
+
 
 function App() {
 
 const [cakes, setCakes] = useState([]);
 
 
-console.log(cakes)
-
   useEffect(() =>{
     fetch("/cakes")
     .then((r) => r.json())
     .then((r) => setCakes(r))
   }, [])
+
 
   function handleAddCake(newCake){
     setCakes([...cakes, newCake])
@@ -45,7 +49,7 @@ console.log(cakes)
 
 
   function handleDeleteCake(deletedReview){
-    console.log(deletedReview)
+    // console.log(deletedReview)
     const cakeReviewList = cakes.find(c => c.id === deletedReview.cake_id).reviews
 
     const updatedReviews= cakeReviewList.filter((r) => r.id !== deletedReview.id)
@@ -65,7 +69,7 @@ console.log(cakes)
 
   function handleUpdateReview(updatedReview){
 
-    console.log(updatedReview)
+    // console.log(updatedReview)
 
     const cakeReviews = cakes.find(c => c.id === updatedReview.cake_id).reviews
 
@@ -98,7 +102,8 @@ console.log(cakes)
             <Route exact path="/signup" element={ <SignUp  /> }/>
             <Route exact path="/addCake" element={<CakeForm onAddCake={handleAddCake} />} />
             <Route exact path="/" element={ <Home cakes= {cakes} onAddReview={handleReview} onDeleteCake={handleDeleteCake}  onUpdateCakeReview={handleUpdateReview} /> } />
-            <Route exact path="aboutUs" element = { <AboutUs /> } />
+            <Route exact path="/aboutUs" element = { <AboutUs /> } />
+            <Route exact path="/cakesreviewed" element={ <CakeReviewed cakes={cakes}/>}/>
         </Routes>
         </UserProvider>
     </div>
