@@ -1,24 +1,41 @@
+
+<h1> InstaCake, a Backend and Frontend Cake App Project </h1
+
+This Project consists of building a backend database able to handle three tables, Cake, Review, and User. The purpose is to allow the user to create an account and make reviews on different cakes.
+
+The point of this project is to store or retrieve information with a front-end application.
+
+There are many users and many cakes and reviews belong to both of them. With this logic in mind, the backend is set up with models, controllers, serializers, migrations, and data for seeding. A user is able to sign in or create an account, and update, delete, create, and read Reviews, or add a Cake he/she wishes to post for other users to make reviews on it.
+
+Each cake posted shares information such as location, name of the cake, and type of cake along with a picture. As mentioned before, a user can add more cakes, but this whole project can also be potentially used for filtering cakes or deleting or updating in case the user is interested, these methods are not included but can be made if anybody is interested.
+
+<h1> Installation: </h2>
+
 # Project Template: React/Rails API
-
+<h1> Backend and Frontend Cake App Project </h1
 ## Description
-
+This Project consists of building a backend database able to handle three tables, Cake, Review, and User. The purpose is to allow the user to create an account and make reviews on different cakes.
 This project is scaffolded so that you can build a React frontend and Rails
 backend together, and easily deploy them to Render.
-
+The point of this project is to store or retrieve information with a front-end application.
 **Note**: if you are not planning to deploy your app to Render and prefer to use
 SQLite, you will need to make the following changes in the project files:
-
+There are many users and many cakes and reviews belong to both of them. With this logic in mind, the backend is set up with models, controllers, serializers, migrations, and data for seeding. A user is able to sign in or create an account, and update, delete, create, and read Reviews, or add a Cake he/she wishes to post for other users to make reviews on it.
 1. In the `Gemfile`, replace `gem 'pg', '~> 1.1'` with `gem 'sqlite3', '~>
    1.4'`.
 2. In the `database.yml` file, change the line `adapter: postgresql` to
    `adapter: sqlite3`.
-
+Each cake posted shares information such as location, name of the cake, and type of cake along with a picture. As mentioned before, a user can add more cakes, but this whole project can also be potentially used for filtering cakes or deleting or updating in case the user is interested, these methods are not included but can be made if anybody is interested.
 ## Requirements
+<h1> Installation: </h2>
 
 - Ruby 2.7.4
 - NodeJS (v16), and npm
 - Render account
 - Postgresql
+- Fork and Clone this repository on your device.
+- Start the backend of the application, and run the rails server.
+- Start the front end of the application, run npm start.
 
 See Environment Setup below for instructions on installing these tools if you
 don't already have them.

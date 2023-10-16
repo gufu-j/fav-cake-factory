@@ -43,7 +43,7 @@ function ReviewForm({cake, onAddReview, cakes}){
              if (!data.errors) {
                  setBody("")
                  onAddReview(data)
-                 console.log(data)
+                 //console.log(data)
 
                  // this was added right at the end of this project
                         setUser({
@@ -67,7 +67,7 @@ function ReviewForm({cake, onAddReview, cakes}){
         })
     }
 
-    console.log(user)
+    //console.log(user)
 
 
     return(

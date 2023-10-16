@@ -6,7 +6,7 @@ import EditReview from "./EditReview";
 
 function Review({review, onDeleteCake, cake, onUpdateCakeReview}){
 
-    const {user} = useContext(UserContext)
+    const {user, setUser} = useContext(UserContext)
 
 
     function handleDeleteClick(){
@@ -16,9 +16,12 @@ function Review({review, onDeleteCake, cake, onUpdateCakeReview}){
         .then((r) => {
             if(r.ok){
                 onDeleteCake(review)
-                // setUser({...user, cakes: [...user.cakes, cake]})
+                const updatedCake= user.cakes.filter((c)=> c.id !== review.cake_id)
+                setUser({...user, cakes: updatedCake})
             } 
-        });
+        }
+        )
+
     }
 
 
