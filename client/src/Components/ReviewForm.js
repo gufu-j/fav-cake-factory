@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "./context/user";
 import { useContext } from "react";
 
-function ReviewForm({cake, onAddReview, cakes}){
+function ReviewForm({cake, onAddReview}){
 
     const [body, setBody] = useState("")
     const [errors, setErrors] = useState([])
@@ -46,6 +46,7 @@ function ReviewForm({cake, onAddReview, cakes}){
                  //console.log(data)
 
                  // this was added right at the end of this project
+                    console.log(cake)
                         setUser({
                         ...user, cakes: [...user.cakes, cake]
                         })

@@ -17,6 +17,7 @@ import CakeReviewed from './CakeReviewed';
 
 function App() {
 
+//cakes state, it all starts here to display reviews.
 const [cakes, setCakes] = useState([]);
 
 
@@ -48,7 +49,7 @@ const [cakes, setCakes] = useState([]);
   }
 
 
-  function handleDeleteCake(deletedReview){
+  function handleDeleReview(deletedReview){
     // console.log(deletedReview)
     const cakeReviewList = cakes.find(c => c.id === deletedReview.cake_id).reviews
 
@@ -101,7 +102,7 @@ const [cakes, setCakes] = useState([]);
             <Route exact path="/login" element={ <Login  /> } />
             <Route exact path="/signup" element={ <SignUp  /> }/>
             <Route exact path="/addCake" element={<CakeForm onAddCake={handleAddCake} />} />
-            <Route exact path="/" element={ <Home cakes= {cakes} onAddReview={handleReview} onDeleteCake={handleDeleteCake}  onUpdateCakeReview={handleUpdateReview} /> } />
+            <Route exact path="/" element={ <Home cakes= {cakes} onAddReview={handleReview} onDeleteCake={handleDeleReview}  onUpdateCakeReview={handleUpdateReview} /> } />
             <Route exact path="/aboutUs" element = { <AboutUs /> } />
             <Route exact path="/cakesreviewed" element={ <CakeReviewed cakes={cakes}/>}/>
         </Routes>
