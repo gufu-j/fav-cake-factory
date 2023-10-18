@@ -153,6 +153,7 @@ a:hover, a:active {
 
 
 .button-54 {
+  left:10px;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   letter-spacing: 2px;
@@ -167,11 +168,7 @@ a:hover, a:active {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-
-  /* margin-bottom: 30px;
-margin-left: 150px; */
-/* margin-right: 150px; */
-margin-right: 10px;
+  margin-right: 10px;
 
 }
 
@@ -186,6 +183,21 @@ margin-right: 10px;
     padding: 0.25em 0.75em;
   }
 }
+
+.aboutUs{
+ font-size: 18px;
+ font-family: 'georgia';
+ text-align: center;
+ left:30px;
+ top:300px;
+ position: absolute;
+ height: 180px;
+ width: 500px;
+ background-color: #76b8e4;
+}
+
+
+
 
 
 
