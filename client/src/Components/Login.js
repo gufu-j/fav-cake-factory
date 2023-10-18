@@ -5,11 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 function Login({}){
 
+    //Login section comes mostly from Prof. Nancy's lecture as reference.
+
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState([])
 
     const {login} = useContext(UserContext)
+
     const navigate = useNavigate()
 
     function handleSubmit(e) {
@@ -43,12 +46,12 @@ function Login({}){
     return(
         <>
         <div>
-        <form onSubmit={handleSubmit}>
-            <h1> Login </h1>
-            <input type= "text" id= "username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="username"/>
-            <input type= "password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password"/>
-            <button type="submit"> Login </button>
-        </form>
+            <form onSubmit={handleSubmit}>
+                <h1> Login </h1>
+                    <input type= "text" id= "username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="username"/>
+                        <input type= "password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password"/>
+                            <button type="submit"> Login </button>
+            </form>
         </div>
             {errors.map((err) => (
                 <li style={{ color: "red" }} key={err}>
