@@ -19,14 +19,14 @@ function Home({cakes, onAddReview, onDeleteCake, onUpdateCakeReview}){
         );
         } else {  //if user has not logged in, let him/her see cakes, but don't let him add reviews
              return(
-                    <div>
-                        <div className="intro">
-                            <h1> InstaCake  🍰 </h1>
+                <div>
+                     <div className="intro">
+                        <h1> InstaCake  🍰 </h1>
                             <Cakes cakes= {cakes} onAddReview={onAddReview} onDeleteCake={onDeleteCake}/>
                         </div> 
-                     </div>
-
-                    )}
+                </div>
+            )
+        }
 }
 
 export default Home
