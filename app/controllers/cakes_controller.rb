@@ -27,6 +27,23 @@ class CakesController < ApplicationController
     end
 
 
+    def cCount
+      cakes = Cake.all
+      filtered_cakes = cakes.select {|cake| cake.type_of_cake.length > params[:num].to_i}
+
+      if (filtered_cakes.length == 0)
+        render json: {error: "sorry man"}
+      else
+        render json: filtered_cakes
+      end
+
+
+      # render json: cakes
+
+    end
+
+
+
     private 
 
     def cake_params

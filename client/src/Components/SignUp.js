@@ -40,7 +40,7 @@ function SignUp({}){
                 setUsername("")
                 setPassword("")
                 setPasswordConfirmation("")
-                const errorLis = user.errors.map(e => <li key={e}>{e}</li>)
+                const errorLis = user.errors.map(e => <li style={{color:"red"}} key={e}>{e}</li>)
                 setErrors(errorLis)
              }
         })

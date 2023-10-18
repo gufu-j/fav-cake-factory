@@ -18,8 +18,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   post "/signup", to: "users#create"
 
-  # get "practicecakes", to: "practices#index"
-
+  get "/countme/:num", to: "cakes#cCount"
   
 
   
