@@ -10,7 +10,7 @@ function ReviewCard({cake, cake_reviews, onAddReview, onDeleteCake, onUpdateCake
     let review_list= cake_reviews.map((review) => (
         <Review
             key={review.id}
-            review={review}
+            reviewObj={review}
             onDeleteCake={onDeleteCake}
             cake={cake}
             onUpdateCakeReview={onUpdateCakeReview}

@@ -3,6 +3,7 @@ import { useState } from "react";
 
 function EditReview({review, onUpdateCakeReview}){
 
+    //over here, in this component, review is a object.
     const [modal, setModal] = useState(false);
 
     const toggleModal = () => {
