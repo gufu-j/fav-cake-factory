@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
     private 
 
     def review_params
-        params.permit(:review, :cake_id)
+        params.permit(:review, :cake_id) 
     end
 
     def render_unprocessable_entity_response(invalid)
