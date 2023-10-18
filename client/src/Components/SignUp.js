@@ -36,6 +36,7 @@ function SignUp({}){
                 signup(user)
                 navigate('/')
              } else {
+                console.log(user)
                 setUsername("")
                 setPassword("")
                 setPasswordConfirmation("")

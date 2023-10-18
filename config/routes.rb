@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 
   # this route is to practice for the assesment.
-  resources :practicecakes, only: [:index, :show]
+  # resources :practicecakes, only: [:index, :show]
 
   # get '/cakes', to: 'cakes#index'
 
