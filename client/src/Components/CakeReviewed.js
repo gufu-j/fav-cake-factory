@@ -3,9 +3,6 @@ import { useContext } from "react";
 import { UserContext } from "./context/user";
 
 
-// import CheckedCake from "./CheckedCake";
-
-
 function CakeReviewed(){
 
 

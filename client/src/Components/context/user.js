@@ -8,6 +8,7 @@ function UserProvider({children}){
 
     // create a provider component
     const [user, setUser] = useState({});
+    
     const [loggedIn, setLoggedIn] = useState(false) //add loggedIn flag
 
     
@@ -46,7 +47,7 @@ function UserProvider({children}){
     }
 
     return(
-        // add loggedIn to global state
+        // add loggedIn to global and state
         <UserContext.Provider value={{user, login, logout, signup, loggedIn, setUser}}>
             {children}
         </UserContext.Provider>
