@@ -85,7 +85,7 @@ const [cakes, setCakes] = useState([]);
     setCakes([...cakes, newCake])
   }
 
-  // over here in the reviews, route in line 100 will handle most of the job done in this project.
+  // over here, route in line 99 will handle most of the job done in this project.
   return (
     <div>
       <UserProvider>
