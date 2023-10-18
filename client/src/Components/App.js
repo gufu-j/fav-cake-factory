@@ -91,13 +91,13 @@ const [cakes, setCakes] = useState([]);
         <NavBar />
           <Routes>
             <Route exact path="/login" element={ <Login  /> } />
-            <Route exact path="/signup" element={ <SignUp  /> }/>
-            <Route exact path="/addCake" element={<CakeForm onAddCake={handleAddCake} />} />
-            <Route exact path="/aboutUs" element = { <AboutUs /> } />
-            <Route exact path="/cakesreviewed" element={ <CakeReviewed cakes={cakes}/>}/> 
-            <Route exact path="/" element={ <Home cakes= {cakes} onAddReview={handleReview} onDeleteCake={handleDeleReview}  onUpdateCakeReview={handleUpdateReview} /> } />
-          </Routes>
-        </UserProvider>
+               <Route exact path="/signup" element={ <SignUp  /> }/>
+                  <Route exact path="/addCake" element={<CakeForm onAddCake={handleAddCake} />} />
+               <Route exact path="/aboutUs" element = { <AboutUs /> } />
+             <Route exact path="/cakesreviewed" element={ <CakeReviewed cakes={cakes}/>}/> 
+           <Route exact path="/" element={ <Home cakes= {cakes} onAddReview={handleReview} onDeleteCake={handleDeleReview}  onUpdateCakeReview={handleUpdateReview} /> } />
+        </Routes>
+      </UserProvider>
     </div>
   );
 }
