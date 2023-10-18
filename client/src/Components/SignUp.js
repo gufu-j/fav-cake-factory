@@ -10,6 +10,7 @@ function SignUp({}){
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [errors, setErrors] = useState([])
+
     const{signup} = useContext(UserContext)
     const navigate = useNavigate()
 
@@ -34,13 +35,13 @@ function SignUp({}){
             if (!user.errors) {
                 signup(user)
                 navigate('/')
-            } else {
+             } else {
                 setUsername("")
                 setPassword("")
                 setPasswordConfirmation("")
                 const errorLis = user.errors.map(e => <li key={e}>{e}</li>)
                 setErrors(errorLis)
-            }
+             }
         })
         
     }
@@ -49,10 +50,10 @@ function SignUp({}){
         <div>
             <form onSubmit={handleSubmit}>
                 <h1> Sing up </h1>
-                <input type= "text" id="username" value= {username} onChange={(e) => setUsername(e.target.value)} placeholder="username"/>
-                <input type= "text" id="password" value= {password} onChange={(e) => setPassword(e.target.value)} placeholder="password"/>
-                <input type= "text" id="passwordConfirmation" value= {passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} placeholder="password confirmation"/>
-                <button type= "submit">Sign up</button>
+                    <input type= "text" id="username" value= {username} onChange={(e) => setUsername(e.target.value)} placeholder="username"/>
+                        <input type= "text" id="password" value= {password} onChange={(e) => setPassword(e.target.value)} placeholder="password"/>
+                            <input type= "text" id="passwordConfirmation" value= {passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} placeholder="password confirmation"/>
+                                 <button type= "submit">Sign up</button>
             </form>
             <ul>
                 {errors}
