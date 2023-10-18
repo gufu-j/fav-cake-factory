@@ -24,11 +24,6 @@ const [cakes, setCakes] = useState([]);
     .then((r) => setCakes(r))
   }, [])
 
-
-  function handleAddCake(newCake){
-    setCakes([...cakes, newCake])
-  }
-
   function handleReview(newReview){
     //c stands for single cake
     const updatedCakes = cakes.map((c) => { 
@@ -82,6 +77,12 @@ const [cakes, setCakes] = useState([]);
      }
     )
     setCakes(updatedCakes)
+  }
+
+  
+  // after making sure reviews were displayed along with cake cards, I worked on adding a cake  as an option from the Nav bar.
+  function handleAddCake(newCake){
+    setCakes([...cakes, newCake])
   }
 
   // over here in the reviews, route in line 100 will handle most of the job done in this project.

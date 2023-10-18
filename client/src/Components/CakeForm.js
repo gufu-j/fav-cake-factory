@@ -51,16 +51,15 @@ function CakeForm({onAddCake}){
     return(
         <div>
             <form onSubmit={handleSubmitNewCake}>
-            <h1> Add a New Cake </h1>
-            <input type= "text" id= "name" value={name} onChange={(e) => setCakename(e.target.value)} placeholder="cake name"/>
-            <input type= "text" id="type_of_cake" value={type_of_cake} onChange={(e) => setType_of_cake(e.target.value)} placeholder="type of cake"/>
-            <input type= "text" id="cake_image" value={cake_image} onChange={(e) => setCake_image(e.target.value)} placeholder="URL for cake image"/>
-            <input type= "text" id="cake_location" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="location"/>
+             <h1> Add a New Cake </h1>
+                <input type= "text" id= "name" value={name} onChange={(e) => setCakename(e.target.value)} placeholder="cake name"/>
+                <input type= "text" id="type_of_cake" value={type_of_cake} onChange={(e) => setType_of_cake(e.target.value)} placeholder="type of cake"/>
+                <input type= "text" id="cake_image" value={cake_image} onChange={(e) => setCake_image(e.target.value)} placeholder="URL for cake image"/>
+                <input type= "text" id="cake_location" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="location"/>
             <button type="submit"> add cake </button>
-        </form>
-        {errors}
+            </form>
 
-
+            {errors}
         </div>
     )
 }
