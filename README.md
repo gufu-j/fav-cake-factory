@@ -1,5 +1,7 @@
 
 <h1> InstaCake, a Backend and Frontend Cake App Project </h1
+<img width="441" alt="image" src="https://github.com/gufu-j/fav-cake-factory/assets/112182396/eb981242-e192-44ea-a689-e68804ff1eac">
+
 
 This Project consists of building a backend database able to handle three tables, Cake, Review, and User. The purpose is to allow the user to create an account and make reviews on different cakes.
 
